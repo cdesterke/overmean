@@ -15,7 +15,7 @@ overmean <- function(data)
 
 	v <- apply(combined[,2:ncol(combined)],1, var)
 	varsignal<-v[!is.na(v)]
-    	baselinevar<-mean(varsignal)
+    	baselinevar<-mean(varsignal)+2*sd(varsignal)
     	varsignal<-data.frame(varsignal)
         varsignal
     	recombined<-merge(varsignal,combined,by="row.names")
